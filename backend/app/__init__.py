@@ -6,4 +6,4 @@ CORS(app)
 
 from app import routes
 
-app.run(host='192.168.1.110')
+app.run(host='0.0.0.0', port=9999)
