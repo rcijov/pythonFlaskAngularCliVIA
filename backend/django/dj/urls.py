@@ -19,5 +19,5 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^vote/', views.post, name='vote')
+    url(r'^postjson/', views.post, name='vote')
 ]
