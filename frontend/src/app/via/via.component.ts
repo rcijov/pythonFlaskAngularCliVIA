@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  HttpClient } from '@angular/common/http'
+import { Via } from './via';
 
 @Component({
   selector: 'app-via',
@@ -9,6 +10,7 @@ import {  HttpClient } from '@angular/common/http'
 
   export class ViaComponent implements OnInit {
 
+  	via = new Via();
   	textValueInput = "Input to API.";
 	textValueOutput = "Output to API.";
 
@@ -22,7 +24,9 @@ import {  HttpClient } from '@angular/common/http'
 		const req = this.http.post('http://'+ip+':9999/postjson', {
 		request: this.textValueInput })
 				.subscribe(
-				res => { this.textValueOutput = JSON.stringify(res['response']);},
+				res => { 	this.via.content = res['response'];
+						this.textValueOutput = JSON.stringify(this.via.content);
+				},
 				err => { console.log("Error occured");}
 		     );
 	}
